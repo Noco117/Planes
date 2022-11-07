@@ -11,5 +11,18 @@ class CartesianPlane:
     def array(self):
         return [self.x, self.y, self.z, self.d]
 
-    def pr_str(self):
+    def parametric_form(self):
+        pass
+
+    def __repr__(self):
         return str(self.x) + "x + " + str(self.y) + "y + " + str(self.z) + "z = " + str(self.d)
+
+
+class ParametricPlane:
+    def __init__(self, holdVec, dirVec1, dirVec2):
+        self.hV = holdVec
+        self.dV1 = dirVec1
+        self.dV2 = dirVec2
+
+    def __repr__(self):
+        return f"{self.hV} + t*{self.dV1} + s*{self.dV2}"

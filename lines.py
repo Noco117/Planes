@@ -1,6 +1,7 @@
 import math
 import sympy as sp
 from fractions import Fraction
+from Symbols import x, y, z
 
 
 class CartesianLine:
@@ -13,7 +14,13 @@ class CartesianLine:
         self.c = c
 
     def __repr__(self):
-        return f"E: (x - {self.x0})/{self.a} = (y - {self.y0})/{self.b} = (z - {self.z0})/{self.c}"
+        x_p = sp.nsimplify((x - self.x0)/self.a)
+        y_p = sp.nsimplify((y - self.y0)/self.b)
+        z_p = sp.nsimplify((z - self.z0)/self.c)
+
+        return f"{x_p} = {y_p} = {z_p}"
+
+        # return f"E: (x - {self.x0})/{self.a} = (y - {self.y0})/{self.b} = (z - {self.z0})/{self.c}"
 
     def to_parametric_line(self):
         x_com = [self.x0, self.a]
